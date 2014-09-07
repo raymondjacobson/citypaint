@@ -33,8 +33,9 @@ def twil():
   if result is not None:
     shape_id = len(result)
   for coord in gen.getCoords(word):
-    rando = np.random.random_sample();
-    coordz = coord + (rando,)
+    rando1 = np.random.random_sample();
+    rando2 = np.random.random_sample();
+    coordz = coord + (rando1,rando2)
     result = firebase.post('/texts/'+phone_num+"/"+str(shape_id), {'coord': coordz})
   return "OK"
 

@@ -1,10 +1,8 @@
 function makeShape(list_of_coordinates, block_length, w, h, r) {
-  // console.log(w + ", " + h);
   var r1 = list_of_coordinates[0][3];
-  var r2 = 1-r1
+  var r2 = list_of_coordinates[0][4];
   var start_x = r1 * w;
   var start_y = r2 * h;
-  // console.log(start_x + ", " + start_y);
   for (var i = 0; i < list_of_coordinates.length; i++) {
     var x = list_of_coordinates[i][0];
     var y = list_of_coordinates[i][1];
