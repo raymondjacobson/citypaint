@@ -51,6 +51,18 @@ function updateScroll(element){
   element.scrollTop = element.scrollHeight;
 }
 
+function updateWindow(){
+    var x = $('#page').width();
+    var y = $('#page').height();
+
+    console.log(x + ", " + y);
+
+    var svg = d3.select('svg')
+        .attr('width', x)
+        .attr('height', y);
+}
+window.onresize = updateWindow;
+
 var pivotApp = angular.module('pivotApp', ['ngRoute', 'firebase']);
 
 // helpers
