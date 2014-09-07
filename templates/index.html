@@ -38,66 +38,13 @@
     <div id="page">
       <div ng-view></div>
         <script type="text/javascript">
-            var width = document.getElementById('page').width;
-            var height = document.getElementById('page').height;
+            var width = $('#page').width();
+            var height = $('#page').height();
 
             d3.select("#page").append("svg")
               .attr("width", width)
               .attr("height", height)
               .attr("id", "area");
-        </script>
-        <script type="text/javascript">
-            var block_length = 5;
-            // makeBlock(15, 15, 5);
-
-            var list_of_coordinates = [
-              {"x": 2, "y": 0},
-              {"x": 1, "y": 1},
-              {"x": 2, "y": 1},
-              {"x": 3, "y": 1},
-              {"x": 0, "y": 2},
-              {"x": 1, "y": 2},
-              {"x": 2, "y": 2},
-              {"x": 3, "y": 2},
-              {"x": 4, "y": 2}
-            ];
-
-            makeShape(list_of_coordinates);
-
-            function makeShape(list_of_coordinates) {
-              w = document.getElementById('page').width;
-              h = document.getElementById('page').height;
-              console.log(w + ", " + h);
-
-              var start_x = Math.random() * document.getElementById("area").width;
-              var start_y = Math.random() * document.getElementById("area").height;
-              console.log(start_x + ", " + start_y);
-              for (var i = 0; i < list_of_coordinates.length; i++) {
-                var x = list_of_coordinates[i].x;
-                var y = list_of_coordinates[i].y;
-                console.log(x + ", " + y);
-                if (start_x + block_length*(x+1) > document.getElementById('area').width) {
-                  x = document.getElementById('area').width - block_length;
-                } else {
-                  x = start_x + block_length*x;
-                }
-                if (start_y + block_length*(y+1) > document.getElementById('area').height) {
-                  y = document.getElementById('area').height - block_length;
-                } else {
-                  y = start_y + block_length*y;
-                }
-                makeBlock(x, y, block_length);
-              }
-            }
-
-            function makeBlock(x, y, length) {
-              d3.select("#area")
-                .append("rect")
-                .attr("x", x)
-                .attr("y", y)
-                .attr("width", length)
-                .attr("height", length)
-            }
         </script>
     </div>
   </div>

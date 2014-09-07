@@ -5,6 +5,7 @@ from twilio.rest import TwilioRestClient
 import twilio.twiml
 from firebase import firebase
 import gen
+import numpy as np
 
 firebase = firebase.FirebaseApplication('https://sentencesoup.firebaseio.com', None)
 
@@ -32,7 +33,9 @@ def twil():
   if result is not None:
     shape_id = len(result)
   for coord in gen.getCoords(word):
-    result = firebase.post('/texts/'+phone_num+"/"+str(shape_id), {'coord': coord})
+    rando = np.random.random_sample();
+    coordz = coord + (rando,)
+    result = firebase.post('/texts/'+phone_num+"/"+str(shape_id), {'coord': coordz})
   return "OK"
 
 if __name__ == "__main__":
