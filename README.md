@@ -1,4 +1,4 @@
-# Sentence Soup
+# CITY ART
 ## MHacks 2014
 
 @mengsquared

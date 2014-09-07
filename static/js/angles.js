@@ -28,6 +28,7 @@ function makeBlock(x, y, length) {
     .attr("y", y)
     .attr("width", length)
     .attr("height", length)
+    .attr("fill", "white");
 }
 
 function updateScroll(element){
