@@ -42,7 +42,20 @@
 
             d3.select("#page").append("svg")
               .attr("width", width)
-              .attr("height", height);
+              .attr("height", height)
+              .attr("id", "area");
+        </script>
+        <script type="text/javascript">
+            makeBlock(15, 15, 5);
+
+            function makeBlock(x, y, length) {
+              d3.select("#area")
+                .append("rect")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("width", length)
+                .attr("height", length)
+            }
         </script>
     </div>
   </div>
