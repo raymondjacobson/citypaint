@@ -3,7 +3,7 @@
 <!--[if lt IE 7 ]> <html class="no-js ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]>    <html class="no-js ie7" lang="en"> <![endif]-->
 <!--[if IE 8 ]>    <html class="no-js ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en" ng-app='sentenceSoupApp'> <!--<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="no-js" lang="en" ng-app='pivotApp'> <!--<![endif]-->
 <head>
 <meta charset="utf-8">
 <title>{{title}}</title>
@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css' ) }}" media="all">
 
 <script type='text/javascript' src="{{ url_for('static', filename='js/angular.min.js' )}}"></script>
+<script type='text/javascript' src="{{ url_for('static', filename='js/jquery.js' )}}"></script>
 <script type='text/javascript' src="{{ url_for('static', filename='js/angular-route.min.js' )}}"></script>
 <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>

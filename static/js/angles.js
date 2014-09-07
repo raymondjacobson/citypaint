@@ -3,7 +3,7 @@ function updateScroll(element){
   element.scrollTop = element.scrollHeight;
 }
 
-var pivotApp = angular.module('pivotApp', ['firebase', 'ngRoute']);
+var pivotApp = angular.module('pivotApp', ['ngRoute', 'firebase']);
 
 // helpers
 var addScript = function(script_name) {
@@ -31,6 +31,30 @@ pivotApp.controller('defaultCtrl', function($scope) {
 });
 pivotApp.controller('mainCtrl', ["$scope", "$firebase",
   function($scope, $firebase) {
+    $(document).ready(function() {
+      console.log($('#page').height());
+    });
+    var ref = new Firebase("https://sentencesoup.firebaseio.com/texts/");
+    var sync = $firebase(ref);
+    var syncObject = sync.$asObject();
+    syncObject.$loaded().then(function () {
+      angular.forEach(syncObject, function(data) {
+        // get coords
+        angular.forEach(data, function(coords) {
+        console.log('coord');
+          angular.forEach(coords, function(coord) {
+            console.log(coord['coord']);
+          })
+        });
+      });
+    })
+    // syncObject.$bindTo($scope, "shapes");
+    // $scope.$watch("story", function(value) {
+    //   var element = document.getElementById("story");
+    //   setTimeout(function() {
+    //     updateScroll("story");
+    //   });
+    // });
   }
 ]);
 pivotApp.controller('404Ctrl', function($scope) {
