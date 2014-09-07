@@ -77,40 +77,11 @@ pivotApp.controller('mainCtrl', ["$scope", "$firebase",
             var w = $("#page").width();
             var h = $("#page").height();
             var block_length = 5;
-            // makeBlock(15, 15, 5);
-            var list_of_coordinates = [
-              {"x": 2, "y": 0},
-              {"x": 1, "y": 1},
-              {"x": 2, "y": 1},
-              {"x": 3, "y": 1},
-              {"x": 0, "y": 2},
-              {"x": 1, "y": 2},
-              {"x": 2, "y": 2},
-              {"x": 3, "y": 2},
-              {"x": 4, "y": 2}
-            ];
             makeShape(coords, block_length, w, h);
           });
         });
       });
     });
-    // var sync = $firebase(ref);
-    // var syncObject = sync.$asObject();
-    // syncObject.$loaded().then(function () {
-    //   angular.forEach(syncObject, function(data) {
-    //     syncObject.$bindTo($scope, "shapes");
-    //     // get coords
-    //     angular.forEach(data, function(coords) {
-    //       });
-    //     });
-    //   });
-    // })
-    // $scope.$watch("story", function(value) {
-    //   var element = document.getElementById("story");
-    //   setTimeout(function() {
-    //     updateScroll("story");
-    //   });
-    // });
   }
 ]);
 pivotApp.controller('404Ctrl', function($scope) {

@@ -9,6 +9,6 @@ def getCoords(incoming_str):
   for i in range(0, len(lis)):
     for j in range(0, len(lis[i])):
       if lis[i][j] != " ":
-        points.append((i, j))
+        points.append((j, i))
 
   return points
