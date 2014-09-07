@@ -26,6 +26,7 @@
 <script type='text/javascript' src="{{ url_for('static', filename='js/angular.min.js' )}}"></script>
 <script type='text/javascript' src="{{ url_for('static', filename='js/angular-route.min.js' )}}"></script>
 <script src="https://cdn.firebase.com/js/client/1.0.21/firebase.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="https://cdn.firebase.com/libs/angularfire/0.8.2/angularfire.min.js"></script>
   
 </head>
@@ -35,6 +36,14 @@
     <h2 class='green'>Text me @ 301-467-2873</h2>
     <div id="page">
       <div ng-view></div>
+        <script type="text/javascript">
+            var width = document.getElementById('page').width;
+            var height = document.getElementById('page').height;
+
+            d3.select("#page").append("svg")
+              .attr("width", width)
+              .attr("height", height);
+        </script>
     </div>
   </div>
   <footer>
