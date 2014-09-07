@@ -1,2 +1,5 @@
 urllib3
 Flask
+twilio
+python-firebase
+flask-triangle
