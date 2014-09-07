@@ -1,8 +1,9 @@
 function makeShape(list_of_coordinates, block_length, w, h, r) {
   // console.log(w + ", " + h);
-  var r = list_of_coordinates[0][2];
-  var start_x = r * w;
-  var start_y = r * h;
+  var r1 = list_of_coordinates[0][3];
+  var r2 = 1-r1
+  var start_x = r1 * w;
+  var start_y = r2 * h;
   // console.log(start_x + ", " + start_y);
   for (var i = 0; i < list_of_coordinates.length; i++) {
     var x = list_of_coordinates[i][0];
@@ -17,18 +18,34 @@ function makeShape(list_of_coordinates, block_length, w, h, r) {
     } else {
       y = start_y + block_length*y;
     }
-    makeBlock(x, y, block_length);
+    makeBlock(x, y, block_length, colorMap(list_of_coordinates[i][2]));
   }
 }
 
-function makeBlock(x, y, length) {
+function makeBlock(x, y, length, color) {
   d3.select("#area")
     .append("rect")
     .attr("x", x)
     .attr("y", y)
     .attr("width", length)
     .attr("height", length)
-    .attr("fill", "white");
+    .attr("fill", color);
+}
+
+function colorMap(c) {
+  cmap = {
+    'f': '#fefefe',
+    'r': '#D63D4A',
+    'o': '#C6802A',
+    'y': '#D4C435',
+    'g': '#26B532',
+    'b': '#2578AD',
+    'p': '#6224A8'
+  }
+  if (c in cmap) {
+    return cmap[c];
+  }
+  return '#fefefe';
 }
 
 function updateScroll(element){
